@@ -1,0 +1,211 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background:  rgb(43, 43, 50);
+    color:rgb(247, 223, 190);
+    align-items: center;
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.welcomeCard{
+    background:rgb(43, 43, 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    width:100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 1s;
+    font-size:3rem;
+}
+.welcomeCard .welcomeWord{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+.cruds{
+    margin: auto;
+    width: 90%;
+}
+.head{
+    margin:10px 0px;
+    background:rgb(87, 87, 97) ;
+    border-radius: 9px;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.head {
+    align-items: center;
+}
+.head small{
+    margin: 8px 0px;
+    align-items: center;
+    font-size: medium;
+}
+.inputs{
+    border-radius: 9px;
+    background:rgb(87, 87, 97) ;
+    padding: 10px;
+    align-items: center;
+
+}
+/* inputs style*/
+input{
+    padding: 4px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background:rgb(157, 157, 165) ;
+    color: aliceblue;
+    height: 34px;
+    margin: 6px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    min-width: 140px;
+    width: 100%;
+}
+.inputs .title{
+width: 95%;
+}
+.inputs .prices{
+    margin: 10px;
+}
+.inputs  .count {
+    max-width:50%;
+
+}
+.inputs .prices input {
+    width: 30%;
+}
+.total{
+    background: rgb(182, 2, 50);
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 6px;
+    display: inline-block;
+    font-size:1.15rem ;
+    
+}
+.total::before{
+    content: 'total price : ';
+    text-transform: uppercase;
+}
+.inputs:has(input:focus) input:not(:focus){
+    transform: scale(0.95);
+    opacity: 0.7;
+}
+.category{
+    min-width: 140px;
+    max-width: 100%;
+    display: inline-block;
+    height: 34px;
+    background: rgb(87, 87, 97);
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color:rgb(253, 229, 196);
+    column-gap: 4px;
+    border-radius: 6px;
+    outline: none;
+    border: 2px 2px rgb(253, 229, 196);
+    text-align: center;
+}
+/* buttons style */
+
+button{
+    background:rgba(138, 12, 117, 0.899);
+    color:rgb(237, 232, 240);
+    border:none;
+    font-size: 1.1rem;
+    margin:10px 4px;
+    padding:8px 0px;
+    border-radius: 10px;
+    transform:scale(1);
+    transition:  0.3s ;
+    box-shadow: 2px 2px 12px rgb(129, 10, 198);
+    width: 90%;
+    cursor: pointer;
+}
+button:hover{
+    transform: scale(1.01);
+    letter-spacing: 1px;
+    font-size: 1.13;
+    background:rgba(193, 14, 163, 0.899)
+}
+button:active{
+    box-shadow: 4px -5px 12px inset rgb(136, 23, 185) ;
+    transform: scale(0.97);
+}
+/* prices elements*/
+
+
+
+/* outputs elements*/
+.outputs{
+    border-radius: 9px;
+    background:rgb(87, 87, 97) ;
+    padding: 10px;
+    align-items: center;
+    margin:10px 0px;
+}
+.searchBlock{
+    display: flex;
+    justify-content: space-between;
+}
+.searchBlock button{
+    width:47%;
+}
+/* table*/
+table{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px;
+}
+table th{
+    text-transform: uppercase;
+    padding: 4px;
+    margin: 4px;
+    background:rgb(87, 87, 97) ;
+    border-radius: 4px;
+
+}
+table tr:nth-child(even){
+    background:rgb(87, 87, 97) ;
+    border-radius: 9px;
+}
+table tr:nth-child(even) td{
+    border-radius: 9px;
+}
+table td button:hover{
+    transform: scale(1);
+    letter-spacing: normal;
+}
+/* button theme */
+
+.themeMode{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    top:20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+.themeMode img{
+    height: 40px;
+    width: 40px;
+}
+
+
+

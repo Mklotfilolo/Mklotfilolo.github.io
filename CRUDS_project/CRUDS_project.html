@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <meta name="keyword" content="cruds"/>
+    <link rel="stylesheet" href="CRUDS_project.css">
+</head>
+<body>
+    <div class="welcomeCard">
+        <div class="welcomeWord"> You Are Welcome </div>
+    </div>
+   <div class="cruds">
+    <div class="head">
+           <h2> cruds </h2>  
+        <small> in this project will see how to make a system manegment to prodects</small>
+    </div>
+
+
+
+    <div class="inputs">
+        <div>
+            <input type="text" placeholder="tilte" class="title">
+        </div>
+        <div class="prices">
+            <input onkeyup="getTotal()" type="number" placeholder="price" class="price">
+            <input onkeyup="getTotal()" type="number" placeholder="taxs" class="taxs">
+            <input onkeyup="getTotal()" type="number" placeholder="Ads" class="ads">
+            <input onkeyup="getTotal()" type="number" placeholder="discount" class="discount">
+            <small class="total"></small>
+        </div>
+        <input type="number" placeholder="count" class="count">
+        <select placeholder="category" class="category">
+            <option value="none">none</option>
+            <option value="tv">TV</option>
+            <option value="phone">Phone</option>
+            <option value="food">Food</option>
+            <option value="tool">Construction tool</option>
+            <option value="vehicle">Vehicle</option>
+        </select>
+        <button class="creatButton">Create</button>
+    </div>
+
+    <div class="outputs">  
+        <div class="searchBlock">
+            <input type="text" placeholder="SEARCH" class="searchIn">
+            <button class="bycategory">by category</button>
+            <button class="byTitle">By title </button>
+        </div>
+    </div>
+    <div class="deleteAll"></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th> price</th>
+            <th>tax </th>
+            <th>ads </th>
+            <th>discount</th>
+            <th>total</th>
+            <th>count</th>
+            <th>category</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        
+        <tbody class="tbody">
+
+        </tbody>
+    </table>
+   </div>
+   <button class="themeMode"> <img src="brightness_12160165.png" alt=""></button>
+   <script src="CRUDS_project.js"></script>
+
+</body>
+</html>
