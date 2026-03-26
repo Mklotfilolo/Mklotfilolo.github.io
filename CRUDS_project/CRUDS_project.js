@@ -13,13 +13,7 @@ window.addEventListener('load',()=>{
     },2000);
     
 });
-
-
-
-
 /* systme */
-
-
 let title=document.getElementsByClassName('title')[0];
 let price=document.getElementsByClassName('price')[0];
 let taxs=document.getElementsByClassName('taxs')[0];
@@ -30,11 +24,16 @@ let count=document.getElementsByClassName('count')[0];
 let category=document.getElementsByClassName('category')[0];
 let creatButton=document.getElementsByClassName('creatButton')[0];
 let tbody=document.getElementsByClassName('tbody')[0];
+let buttonUpdate=document.getElementsByClassName('buttonUpdate')[0];
 let deleteAll=document.getElementsByClassName('deleteAll')[0];
+let searchProductInput=document.getElementsByClassName('searchIn')[0];
+// assistant varibles 
+let dataProdcts=[];
+let mode='create';
+let indexUpdate;
+let modeOfSearch;
 //creat locale storage key 
 
-
-let dataProdcts=[];
 if(!localStorage.productsList){
     localStorage.setItem('productsList',JSON.stringify(dataProdcts));
 }
@@ -59,37 +58,45 @@ let getTotal= function(){
         total.innerHTML='';
     }
 }
-
 // create producte
 
-
-
 creatButton.onclick= function(){
-    if(title.value=='' || price.value==''||category.value=='none' ){
+   if(title.value=='' || price.value==''||category.value=='none' ){
         alert('Please fill in required fields ( title, price ,category) .');
         return;
     }
-    let newProducteObject={
-        title:title.value,
+     let newProducteObject={
+        title:title.value.toLowerCase(),
         price:price.value,
         taxs:taxs.value ||'0',
         ads:ads.value ||'0',
         discount:discount.value ||'0',
         total:total.innerHTML,
         count:count.value ||'1',
-        category:category.value,
+        category:category.value.toLowerCase(),
     }
-    if(newProducteObject.count>1){
-        for(let i=0;i<newProducteObject.count;i++){
-             dataProdcts.push(newProducteObject);
+    if(mode==='create'){
+        if(newProducteObject.count>1 && newProducteObject.count < 101){
+            for(let i=0;i<newProducteObject.count;i++){
+                  dataProdcts.push(newProducteObject);
+            }
+            clearDataInputs();
+        }else if(count.value>100){
+            alert(' count product showld be under or equal 100 ');
+            return;
         }
-    }else{
-        dataProdcts.push(newProducteObject);
+        else{
+            dataProdcts.push(newProducteObject);
+        }
+    }else if(mode==='update'){
+        dataProdcts[indexUpdate]=newProducteObject;
+        creatButton.innerHTML='creat';
+        count.style.display='block';
+        mode='create';
+        clearDataInputs();
     }
-   
-    console.log(dataProdcts);
+
     localStorage.setItem('productsList',JSON.stringify(dataProdcts)); 
-    clearDataInputs();
     showProducts();
 }
  
@@ -105,10 +112,7 @@ function  clearDataInputs(){
     category.value='none';
     count.value='';
 }
-
 // read data of products
-
-
 function showProducts(){
     let datashow='';
     for(let i=0;i<dataProdcts.length;i++){
@@ -120,21 +124,17 @@ function showProducts(){
     '<td>' + dataProdcts[i].taxs + '</td>' +
     '<td>' + dataProdcts[i].ads + '</td>' +
     '<td>' + dataProdcts[i].discount + '</td>' +
-    '<td>' + dataProdcts[i].total + '</td>' +
-    '<td>' + dataProdcts[i].count + '</td>' +
-    '<td>' + dataProdcts[i].category + '</td>'+
-    "<td> <button onclick='updateData("+  i +")' class='buttonUpdate'> Update </button> </td>"+
+    '<td>' + dataProdcts[i].total +' DA </td>' +
+    '<td>' + dataProdcts[i].category.toUpperCase() + '</td>'+
+    "<td> <button onclick='updateData("+ i +")' class='buttonUpdate'> Update </button> </td>"+
     "<td> <button class='buttonDelete'onclick='deleteProduct("+ i +")'> Delete </button></td>"
     +'</tr>';
     };
-
     if(dataProdcts.length>0){
         deleteAll.innerHTML=' <button onclick="deleteAllF()">Delete all ('+ dataProdcts.length +' )</button>';
     }else if(dataProdcts.length==0)  {
-        deleteAll.innerHTML=' ';
+        deleteAll.innerHTML='';
     }
-    
-    
     tbody.innerHTML= datashow;
 }
 showProducts();
@@ -157,15 +157,79 @@ function deleteAllF(){
 
 // update information of prudects 
  function updateData(i) {
-    title.value=dataProdcts.title[i];
-    price.value=dataProdcts.price[i];
-    ads.value=dataProdcts.ads[i];
-    discount.value=dataProdcts.discount[i];
+    title.value=dataProdcts[i].title;
+    price.value=dataProdcts[i].price;
+    ads.value=dataProdcts[i].ads;
+    discount.value=dataProdcts[i].discount;
     getTotal();
-    category.value=dataProdcts.category[i];
-    
+    category.value=dataProdcts[i].category;
+    creatButton.innerHTML='update';
+    indexUpdate=i;
+    count.style.display='none';
+    mode='update';
+    scroll({
+        top:0,
+        behavior:'smooth',
+    },100)
+
  }
 
 
+// search by category or title Function 
+function searchByType(typeOfSearch){
+    modeOfSearch=typeOfSearch;
+    console.log(modeOfSearch);
+    searchProductInput.focus();
+    searchProductInput.placeholder=' SEARCH BY '+typeOfSearch.toUpperCase();
+    searchProductInput.value='';
+    searchProduct();
+    showProducts();
+}
+function  searchProduct(){
+
+    let tableInfo='';
+    if(modeOfSearch==='title'){
+        for(let i=0;i<dataProdcts.length;i++){
+            if(dataProdcts[i].title.includes(searchProductInput.value.toLowerCase())){
+                tableInfo+=
+                '<tr>'+
+        '<td>'+( i+1) +'</td>'+
+    '<td>' + dataProdcts[i].title + '</td>' +
+    '<td>' + dataProdcts[i].price + '</td>' +
+    '<td>' + dataProdcts[i].taxs + '</td>' +
+    '<td>' + dataProdcts[i].ads + '</td>' +
+    '<td>' + dataProdcts[i].discount + '</td>' +
+    '<td>' + dataProdcts[i].total +' DA </td>' +
+    '<td>' + dataProdcts[i].category + '</td>'+
+    "<td> <button onclick='updateData("+ i +")' class='buttonUpdate'> Update </button> </td>"+
+    "<td> <button class='buttonDelete'onclick='deleteProduct("+ i +")'> Delete </button></td>"
+    +'</tr>';
+            };
+            
+        }
+
+    }else if(modeOfSearch==='category'){
+        for(let i=0;i<dataProdcts.length;i++){
+            if(dataProdcts[i].category.includes(searchProductInput.value.toLowerCase())){
+                tableInfo+=
+                '<tr>'+
+        '<td>'+( i+1) +'</td>'+
+    '<td>' + dataProdcts[i].title + '</td>' +
+    '<td>' + dataProdcts[i].price + '</td>' +
+    '<td>' + dataProdcts[i].taxs + '</td>' +
+    '<td>' + dataProdcts[i].ads + '</td>' +
+    '<td>' + dataProdcts[i].discount + '</td>' +
+    '<td>' + dataProdcts[i].total +' DA </td>' +
+    '<td>' + dataProdcts[i].category + '</td>'+
+    "<td> <button onclick='updateData("+ i +")' class='buttonUpdate'> Update </button> </td>"+
+    "<td> <button class='buttonDelete'onclick='deleteProduct("+ i +")'> Delete </button></td>"
+    +'</tr>';
+            };
+            
+        }
+
+    }
+    tbody.innerHTML= tableInfo;
+}
 
 
