@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>
-
+        CRUDS projict by lotfi DZ ouargla
     </title>
     <meta name="keyword" content="cruds"/>
     <link rel="stylesheet" href="CRUDS_project.css">
+    <link rel="icon" href="brightness_12160165.png" type="image/x-icon">
 </head>
 <body>
     <div class="welcomeCard">
@@ -30,7 +31,7 @@
             <input onkeyup="getTotal()" type="number" placeholder="discount" class="discount">
             <small class="total"></small>
         </div>
-        <input type="number" placeholder="count" class="count">
+        <input type="number" placeholder="count ( max = 100 )" class="count">
         <select placeholder="category" class="category">
             <option value="none">none</option>
             <option value="tv">TV</option>
@@ -41,16 +42,14 @@
         </select>
         <button class="creatButton">Create</button>
     </div>
-
     <div class="outputs">  
         <div class="searchBlock">
-            <input type="text" placeholder="SEARCH" class="searchIn">
-            <button class="bycategory">by category</button>
-            <button class="byTitle">By title </button>
+            <input type="text" placeholder="SEARCH" class="searchIn" onkeyup="searchProduct()">
+            <button onclick="searchByType('category')" class="bycategory" >by category</button>
+            <button onclick="searchByType('title')" class="byTitle" >By title </button>
         </div>
     </div>
     <div class="deleteAll"></div>
-
     <table>
         <thead>
         <tr>
@@ -61,7 +60,6 @@
             <th>ads </th>
             <th>discount</th>
             <th>total</th>
-            <th>count</th>
             <th>category</th>
             <th>update</th>
             <th>delete</th>
@@ -75,6 +73,5 @@
    </div>
    <button class="themeMode"> <img src="brightness_12160165.png" alt=""></button>
    <script src="CRUDS_project.js"></script>
-
 </body>
 </html>
