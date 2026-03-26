@@ -119,6 +119,11 @@ function  clearDataInputs(){
 }
 // read data of products
 function showProducts(){
+    if(!dataProdcts || dataProdcts.length==0){
+        tbody.innerHTML="<tr><td colspan='6' style='text-align: center;'>There are no prodacts to display </td></tr>";
+        return;
+    }
+     
     let datashow='';
     for(let i=0;i<dataProdcts.length;i++){
         datashow +=
