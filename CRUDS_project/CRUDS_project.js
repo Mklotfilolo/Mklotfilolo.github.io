@@ -12,7 +12,7 @@ let tbody=document.getElementsByClassName('tbody')[0];
 let buttonUpdate=document.getElementsByClassName('buttonUpdate')[0];
 let deleteAll=document.getElementsByClassName('deleteAll')[0];
 let searchProductInput=document.getElementsByClassName('searchIn')[0];
-
+title.focus();
 
 
 /* animation to the website */
@@ -21,7 +21,7 @@ let searchProductInput=document.getElementsByClassName('searchIn')[0];
 window.addEventListener('load',()=>{
     let welcomeCard=document.getElementsByClassName('welcomeCard')[0];
     let welcomeWord=document.getElementsByClassName('welcomeWord')[0];
-    title.focus();
+    
     setTimeout(()=>{
         welcomeWord.style.opacity='1';
         welcomeWord.style.transform='translateY(0)';
