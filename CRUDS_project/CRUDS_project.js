@@ -1,18 +1,3 @@
-/* animation to the website */
-
-
-window.addEventListener('load',()=>{
-    let welcomeCard=document.getElementsByClassName('welcomeCard')[0];
-    let welcomeWord=document.getElementsByClassName('welcomeWord')[0];
-    setTimeout(()=>{
-        welcomeWord.style.opacity='1';
-        welcomeWord.style.transform='translateY(0)';
-    },300);
-    setTimeout(()=>{
-        welcomeCard.style.transform='translateY(-100%)'
-    },2000);
-    
-});
 /* systme */
 let title=document.getElementsByClassName('title')[0];
 let price=document.getElementsByClassName('price')[0];
@@ -27,6 +12,26 @@ let tbody=document.getElementsByClassName('tbody')[0];
 let buttonUpdate=document.getElementsByClassName('buttonUpdate')[0];
 let deleteAll=document.getElementsByClassName('deleteAll')[0];
 let searchProductInput=document.getElementsByClassName('searchIn')[0];
+
+
+
+/* animation to the website */
+
+
+window.addEventListener('load',()=>{
+    let welcomeCard=document.getElementsByClassName('welcomeCard')[0];
+    let welcomeWord=document.getElementsByClassName('welcomeWord')[0];
+    title.focus();
+    setTimeout(()=>{
+        welcomeWord.style.opacity='1';
+        welcomeWord.style.transform='translateY(0)';
+    },300);
+    setTimeout(()=>{
+        welcomeCard.style.transform='translateY(-100%)'
+    },2000);
+    
+});
+
 // assistant varibles 
 let dataProdcts=[];
 let mode='create';
