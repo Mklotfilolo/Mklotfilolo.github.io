@@ -120,7 +120,7 @@ function  clearDataInputs(){
 // read data of products
 function showProducts(){
     if(!dataProdcts || dataProdcts.length === 0){
-        tbody.innerHTML="<tr style='display:flex;align-items: center;'><td colspan='10' style='text-align: center;font-size:2.5rem;letter-spacing: 1px;font-family:'andalus';>There are no prodacts to display </td></tr>";
+        tbody.innerHTML="<tr><td colspan='10' style='text-align: center;font-size:2.5rem;letter-spacing: 1px;font-family:'andalus';>There are no prodacts to display </td></tr>";
         return;
     }
      
