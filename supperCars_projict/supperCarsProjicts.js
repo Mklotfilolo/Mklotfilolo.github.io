@@ -9,8 +9,8 @@ window.addEventListener('load',()=>{
 })
 let knowWidth= window.innerWidth;
 console.log(knowWidth);
-window.addEventListener('resize',()=>{
-    if(780>=knowWidth){
+
+if(780>=knowWidth){
     let detialsElement=document.createElement('details');
     let summryElement=document.createElement('summary');
     let navBar=document.getElementsByClassName('navBar')[0];
@@ -24,5 +24,5 @@ window.addEventListener('resize',()=>{
     detialsElement.append(navBarElement);
     detialsElement.appendChild(summryElement);
     navBar.append(detialsElement);
+
 }
-})
