@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keyword" content="car, supercar, supercar, luxury cars">
+    <meta name="description" content="This website talks about supercars in the world">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="projictSupperCarSite.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Supercars World</title>
+    <style>
+        /* Additional responsive styles */
+        .infoCar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .infoCar > div {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .infoCar > div:hover {
+            transform: translateY(-5px);
+        }
+        
+        .infoCar img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .titleCar {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        @media (max-width: 780px) {
+            .infoCar {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .titleLogo {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .infoCar {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3a3a07;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #5a5a0a;
+        }
+    </style>
+</head>
+<body ondragstart="return true" onselect="return false">
+    <header class='container-fluid py-3'>
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="titleLogo">Supercars</div>
+            </div>
+            <div class="col-6">
+                <nav class='navBar'>
+                    <ul class='navBarElement d-flex justify-content-end list-unstyled mb-0'>
+                        <li class="ms-3"><a href="#" class="text-decoration-none">HOME</a></li>
+                        <li class="ms-3"><a href="#" class="text-decoration-none">INFO</a></li>
+                        <li class="ms-3"><a href="#" class="text-decoration-none">ABOUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="infoCar container-fluid">
+        <div>
+            <img src="pictur-cars/2021-bugatti-chiron-super-sport-300.jpg" alt="Bugatti Chiron Super Sport 300+"/>
+            <article>
+                <span class="titleCar">Bugatti Chiron Super Sport 300+</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/koenigsegg-jesko-absolut.jpg" alt="Koenigsegg Jesko Absolut"/>
+            <article>
+                <span class="titleCar">Koenigsegg Jesko Absolut</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/mclaren-speedtail.jpg" alt="McLaren Speedtail"/>
+            <article>
+                <span class="titleCar">McLaren Speedtail</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/ferrari-SF90.jpg" alt="Ferrari SF90 Stradale"/>
+            <article>
+                <span class="titleCar">Ferrari SF90 Stradale</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/lamborghini-revuleto.jpg" alt="Lamborghini Revuelto"/>
+            <article>
+                <span class="titleCar">Lamborghini Revuelto</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/aston-martin-valkyrie.jpg" alt="Aston Martin Valkyrie"/>           
+            <article>
+                <span class="titleCar">Aston Martin Valkyrie</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/porsche-918.jpg" alt="Porsche 918 Spyder"/>
+            <article>
+                <span class="titleCar">Porsche 918 Spyder</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/pagani-huayra-R.jpg" alt="Pagani Utopia"/>
+            <article>
+                <span class="titleCar">Pagani Utopia</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/rimac-nevera.jpg" alt="Rimac Nevera"/>
+            <article>
+                <span class="titleCar">Rimac Nevera</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/chevrolet-corvette-z06.jpg" alt="Chevrolet Corvette Z06"/>
+            <article>
+                <span class="titleCar">Chevrolet Corvette Z06</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/lotus-Evija.jpg" alt="Lotus Evija"/>
+            <article>
+                <span class="titleCar">Lotus Evija</span>
+            </article>
+        </div>
+        <div>
+            <img src="pictur-cars/mercedes-AMG-ONE.jpg" alt="Mercedes AMG ONE"/>
+            <article>
+                <span class="titleCar">Mercedes AMG ONE</span>
+            </article>
+        </div>       
+    </section> 
+    
+    <button class="btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="supperCarsProjicts.js"></script>
+</body>
+</html>
